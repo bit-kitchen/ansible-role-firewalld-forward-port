@@ -14,5 +14,8 @@
     permanent: yes
     immediate: yes
     state: enabled
+  loop: "{{ ['tcp', 'udp'] if protocol == '' else [protocol] }}"
+  loop_control:
+    loop_var: _protocol
   # one of self_port and dest_port must be defined
   when: self_port != "" or dest_port != ""

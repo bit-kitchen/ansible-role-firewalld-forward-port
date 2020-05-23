@@ -1,5 +1,5 @@
 ---
-protocol: tcp
+protocol: ""
 dest_addr: ""
 self_port: ""
 dest_port: ""
