@@ -13,7 +13,7 @@
     rich_rule: rule family=ipv4 forward-port port={{ _self_port }} protocol={{ _protocol }} to-port={{ _dest_port }} to-addr={{ _dest_addr }}
     permanent: yes
     immediate: yes
-    state: enabled
+    state: "{{ 'disabled' if remove else 'enabled' }}"
   loop: "{{ ['tcp', 'udp'] if protocol == '' else [protocol] }}"
   loop_control:
     loop_var: _protocol
